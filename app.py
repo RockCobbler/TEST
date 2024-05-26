@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for
 import csv
 
-app = Flask(__name__)
+# Specify the current directory as the templates folder
+app = Flask(__name__, template_folder='.')
 
 @app.route('/')
 def home():
-    return render_template('Home.html')  # Use 'Home.html' if that is the exact filename
+    return render_template('Home.html')  # Ensure 'Home.html' matches the exact filename
 
 @app.route('/contact')
 def contact():
-    return render_template('Form.html')  # Ensure this matches the exact filename in the templates folder
+    return render_template('Form.html')  # Ensure 'Form.html' matches the exact filename
 
 @app.route('/submit', methods=['POST'])
 def submit():
