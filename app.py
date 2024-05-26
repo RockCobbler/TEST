@@ -5,11 +5,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('Home.html')
+    return render_template('Home.html')  # Use 'Home.html' if that is the exact filename
 
 @app.route('/contact')
 def contact():
-    return render_template('Form.html')
+    return render_template('Form.html')  # Ensure this matches the exact filename in the templates folder
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -26,4 +26,4 @@ def submit():
         return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')
